@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote</title>
+    <style>
+        .remote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  background-color: #333;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.btn {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.red { background-color: red; }
+.green { background-color: green; }
+.yellow { background-color: yellow; }
+.blue { background-color: blue; }
+
+.power-section, .color-buttons, .navigation, .volume-channel, .number-pad {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.navigation .btn {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <div class="remote">
+        <!-- Power and Input Buttons -->
+        <div class="power-section">
+          <button class="btn red">Power</button>
+          <button class="btn">SET</button>
+          <button class="btn">AV/TV</button>
+          <button class="btn">VOL +</button>
+          <button class="btn">VOL -</button>
+        </div>
+      
+        <!-- Color-coded Buttons for Functions -->
+        <div class="color-buttons">
+          <button class="btn red">Red</button>
+          <button class="btn green">Green</button>
+          <button class="btn yellow">Yellow</button>
+          <button class="btn blue">Blue</button>
+        </div>
+      
+        <!-- Navigation and OK Button -->
+        <div class="navigation">
+          <button class="btn">Up</button>
+          <button class="btn">Left</button>
+          <button class="btn">OK</button>
+          <button class="btn">Right</button>
+          <button class="btn">Down</button>
+        </div>
+      
+        <!-- Volume and Channel Control -->
+        <div class="volume-channel">
+          <button class="btn">VOL +</button>
+          <button class="btn">VOL -</button>
+          <button class="btn">CH +</button>
+          <button class="btn">CH -</button>
+        </div>
+      
+        <!-- Number Buttons -->
+        <div class="number-pad">
+          <button class="btn">1</button>
+          <button class="btn">2</button>
+          <button class="btn">3</button>
+          <!-- Add more number buttons as needed -->
+        </div>
+      </div>
+
+      <script>
+        document.querySelectorAll(".btn").forEach(button => {
+  button.addEventListener("click", () => {
+    const command = button.innerText; // or assign specific IR codes
+    sendIrCommand(command);
+  });
+});
+
+function sendIrCommand(command) {
+  // IR Blaster Plugin API Call, e.g., with Cordova IR plugin
+  console.log(`Sending IR command for: ${command}`);
+  // Use the IR code specific to each button here
+}
+
+      </script>
+      
+</body>
+</html>
